@@ -1,0 +1,16 @@
+[package]
+name = "fuzzbite"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.83"
+license = "GPL-2.0-or-later"
+description = "Fast batched ssdeep comparisons for Python"
+repository = "https://github.com/taranis-ai/fuzzbite"
+
+[lib]
+name = "_native"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+ffuzzy = { version = "=0.3.16", features = ["strict-parser"] }
+pyo3 = { version = "=0.29.2", features = ["abi3-py310"] }

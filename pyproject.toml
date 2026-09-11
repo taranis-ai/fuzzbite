@@ -1,0 +1,49 @@
+[build-system]
+requires = ["maturin==1.15.0"]
+build-backend = "maturin"
+
+[project]
+name = "fuzzbite"
+version = "0.1.0"
+description = "Fast one-to-many ssdeep comparisons, powered by Rust and ffuzzy"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-2.0-or-later"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "licenses/*"]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Rust",
+]
+
+[project.urls]
+Repository = "https://github.com/taranis-ai/fuzzbite"
+
+[dependency-groups]
+dev = ["maturin==1.15.0", "ppdeep==20260221", "pytest==9.1.1", "ruff==0.16.7"]
+
+[tool.maturin]
+python-source = "python"
+module-name = "fuzzbite._native"
+locked = true
+include = [
+    { path = "uv.lock", format = "sdist" },
+    { path = "tests/**", format = "sdist" },
+    { path = "benchmarks/**", format = "sdist" },
+    { path = "scripts/**", format = "sdist" },
+    { path = "docs/**", format = "sdist" },
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
