@@ -1,0 +1,4 @@
+# GitHub provides this image; actionlint's built-in runner list has not caught up.
+self-hosted-runner:
+  labels:
+    - ubuntu-26.04-arm

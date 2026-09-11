@@ -119,7 +119,10 @@ uv run --locked python scripts/validate_artifacts.py
 
 On Linux, set `MATURIN_PEP517_ARGS='--compatibility linux'` for both commands.
 These local Linux wheels are platform-specific and cannot be uploaded to PyPI.
-CI checks all supported Python versions and builds on each supported platform.
+CI checks all supported Python versions plus the latest stable Python, and builds
+on each supported platform. Workflows follow upstream action branches, latest uv,
+and stable Rust. Ubuntu x86_64 and macOS use `-latest` runners; Ubuntu ARM uses
+`ubuntu-26.04-arm` because GitHub does not provide a `ubuntu-latest-arm` label.
 
 ## Publishing
 
