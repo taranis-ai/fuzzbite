@@ -22,7 +22,13 @@ classifiers = [
 Repository = "https://github.com/taranis-ai/fuzzbite"
 
 [dependency-groups]
-dev = ["maturin==1.15.0", "ppdeep==20260221", "pytest==9.1.1", "ruff==0.16.7"]
+dev = [
+    "maturin==1.15.0",
+    "ppdeep==20260221",
+    "pytest==9.1.1",
+    "ruff==0.16.7",
+    "trafilatura==2.2.0",
+]
 
 [tool.maturin]
 python-source = "python"
@@ -34,6 +40,9 @@ include = [
     { path = "benchmarks/**", format = "sdist" },
     { path = "scripts/**", format = "sdist" },
     { path = "docs/**", format = "sdist" },
+    { path = "testdata/baerbock-columbia/sources.json", format = "sdist" },
+    { path = "testdata/baerbock-columbia/comparison.json", format = "sdist" },
+    { path = "testdata/baerbock-columbia/README.md", format = "sdist" },
 ]
 
 [tool.ruff]
@@ -45,3 +54,5 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["live: downloads publisher articles and checks the saved baseline"]

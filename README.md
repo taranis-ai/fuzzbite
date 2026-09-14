@@ -49,5 +49,7 @@ qualifying match, not necessarily the best one.
 - A score of 100 does not guarantee identical content. **Scores can differ from
   ppdeep**, so check your threshold when switching.
 
+[Article test pipeline](docs/article-extraction.md)
+
 [Benchmarks](docs/benchmarks.md) · [GPL-2.0-or-later](LICENSE) ·
 [Third-party licenses](THIRD_PARTY_NOTICES.md)

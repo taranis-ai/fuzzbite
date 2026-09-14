@@ -1,0 +1,116 @@
+{
+  "generated_at": "2026-09-14T10:37:06.631777+00:00",
+  "algorithm": "ssdeep",
+  "fuzzbite_version": "0.1.1",
+  "trafilatura_version": "2.2.0",
+  "input": "live_extracted_articles",
+  "articles": {
+    "zeit.txt": {
+      "url": "https://www.zeit.de/news/2026-08/24/kreise-baerbock-wechselt-an-new-yorker-columbia-universitaet",
+      "bytes": 1915,
+      "sha256": "c3c85de5705c9f502dafe51f437782f2ce36eb713b6763a8e7feb1c9ad51a9b7",
+      "fuzzy_hash": "48:bLxLnpOjQryMsK3BIDKlCI1GYi5rt0SrRXHwyAti:59GMzCDW8rRXBn"
+    },
+    "sueddeutsche-dpa.txt": {
+      "url": "https://www.sueddeutsche.de/panorama/auf-un-posten-folgt-professur-kreise-baerbock-wechselt-an-new-yorker-columbia-universitaet-dpa.urn-newsml-dpa-com-20090101-260824-930-577201",
+      "bytes": 1940,
+      "sha256": "ac8b3db75f63eaec5c0fb27179dac2b4142eeda9524301c64d5f59f1cc213a1b",
+      "fuzzy_hash": "48:xLxLnpz6QrVsK3BIDKlCIoGpi5rt0SrRXHwyAti:P9hzCDW8rRXBn"
+    },
+    "sueddeutsche-edited.txt": {
+      "url": "https://www.sueddeutsche.de/politik/annalena-baerbock-professorin-columbia-universitaet-new-york-li.3536303",
+      "bytes": 1877,
+      "sha256": "aedfe12338a1e00077cd940f945eb4b4350d9cab2487d23bec74168802a94037",
+      "fuzzy_hash": "48:bT8npzQqrg8sK3BIDKl/cEbWi5rt0SrRXHwyAti:EUuzCDgrRXBn"
+    },
+    "handelsblatt.txt": {
+      "url": "https://www.handelsblatt.com/politik/deutschland/auf-un-posten-folgt-professur-kreise-baerbock-wechselt-an-new-yorker-columbia-universitaet/100249404.html",
+      "bytes": 1933,
+      "sha256": "6e3edad0c0e5704bc77dd7d3701c81a664ff01423b0875a27b644496b71f46de",
+      "fuzzy_hash": "48:6LxLnpz6QrVsK3BIDKlCIoGpi5rt0SrRXHwyAti:+9hzCDW8rRXBn"
+    },
+    "tagesspiegel.txt": {
+      "url": "https://www.tagesspiegel.de/internationales/nach-ende-ihres-un-jobs-baerbock-wechselt-an-new-yorker-columbia-universitat-15977593.html",
+      "bytes": 2304,
+      "sha256": "b84e5d7538a1179e1202fce6bb926621ff6e89a21507253cf4acc61a6a25ef9b",
+      "fuzzy_hash": "48:bLxLnpz6QrVsK3BI/AhOEYZKlCIMGpQFt0S1RXHwyAti:59hzC/AoEOWc1RXBn"
+    },
+    "welt.txt": {
+      "url": "https://www.welt.de/newsticker/dpa_nt/infoline_nt/Politik__Inland_/article6a8ca1fa511d4fd3bc4e2b2d/kreise-baerbock-wechselt-an-new-yorker-columbia-universitaet.html",
+      "bytes": 2083,
+      "sha256": "3cc3dcfb80b3ae7f2bdd8d28fc3fd2a8729317e4c362571033d1e93d774723ab",
+      "fuzzy_hash": "48:ZDBGAQLxLnpOjQryMsK3BIDKlCI1GYi5rt0SrRXHwyAti:tBGA89GMzCDW8rRXBn"
+    },
+    "orf.txt": {
+      "url": "https://orf.at/stories/3440133/",
+      "bytes": 726,
+      "sha256": "b194c0829ce1e828835d66c1f5004b02ebe64909541798dd376c2e7ad65643a0",
+      "fuzzy_hash": "12:OHC/2uwJrFDH0ANQzUIpMuGk9RFBTLEiuvJmfZ0rp3Dg/uT/y0FADC+kfbbGZ1l0:YC/2ugrFDZ4JGuDBuvofCN3pTBFAD+mG"
+    }
+  },
+  "scores": {
+    "zeit.txt": {
+      "zeit.txt": 100,
+      "sueddeutsche-dpa.txt": 85,
+      "sueddeutsche-edited.txt": 72,
+      "handelsblatt.txt": 85,
+      "tagesspiegel.txt": 71,
+      "welt.txt": 93,
+      "orf.txt": 0
+    },
+    "sueddeutsche-dpa.txt": {
+      "zeit.txt": 85,
+      "sueddeutsche-dpa.txt": 100,
+      "sueddeutsche-edited.txt": 72,
+      "handelsblatt.txt": 99,
+      "tagesspiegel.txt": 79,
+      "welt.txt": 80,
+      "orf.txt": 0
+    },
+    "sueddeutsche-edited.txt": {
+      "zeit.txt": 72,
+      "sueddeutsche-dpa.txt": 72,
+      "sueddeutsche-edited.txt": 100,
+      "handelsblatt.txt": 72,
+      "tagesspiegel.txt": 60,
+      "welt.txt": 66,
+      "orf.txt": 0
+    },
+    "handelsblatt.txt": {
+      "zeit.txt": 85,
+      "sueddeutsche-dpa.txt": 99,
+      "sueddeutsche-edited.txt": 72,
+      "handelsblatt.txt": 100,
+      "tagesspiegel.txt": 79,
+      "welt.txt": 80,
+      "orf.txt": 0
+    },
+    "tagesspiegel.txt": {
+      "zeit.txt": 71,
+      "sueddeutsche-dpa.txt": 79,
+      "sueddeutsche-edited.txt": 60,
+      "handelsblatt.txt": 79,
+      "tagesspiegel.txt": 100,
+      "welt.txt": 65,
+      "orf.txt": 0
+    },
+    "welt.txt": {
+      "zeit.txt": 93,
+      "sueddeutsche-dpa.txt": 80,
+      "sueddeutsche-edited.txt": 66,
+      "handelsblatt.txt": 80,
+      "tagesspiegel.txt": 65,
+      "welt.txt": 100,
+      "orf.txt": 0
+    },
+    "orf.txt": {
+      "zeit.txt": 0,
+      "sueddeutsche-dpa.txt": 0,
+      "sueddeutsche-edited.txt": 0,
+      "handelsblatt.txt": 0,
+      "tagesspiegel.txt": 0,
+      "welt.txt": 0,
+      "orf.txt": 100
+    }
+  }
+}

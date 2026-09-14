@@ -50,7 +50,7 @@ jobs:
           cargo test --locked
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
-      - run: uv run --locked python -m pytest -q
+      - run: uv run --locked pytest -q
 
   linux-wheels:
     uses: ./.github/workflows/linux-wheels.yml
@@ -78,7 +78,7 @@ jobs:
             ~/.cargo/git
           key: cargo-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('Cargo.lock') }}
       - run: uv sync --locked
-      - run: uv run --locked python -m pytest -q
+      - run: uv run --locked pytest -q
       - name: Build sdist and wheel through PEP 517
         run: uv build
       - name: Rebuild sdist and smoke clean wheel installations on every supported Python

@@ -52,7 +52,7 @@ jobs:
           cargo test --locked
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
-      - run: uv run --locked python -m pytest -q
+      - run: uv run --locked pytest -q
       - run: uv build
       - run: uv run --locked python scripts/validate_artifacts.py
       - uses: actions/upload-artifact@main
