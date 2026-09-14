@@ -24,7 +24,7 @@ jobs:
       - uses: astral-sh/setup-uv@main
         with:
           version: latest
-          python-version: '3'
+          python-version: '3.14'
           enable-cache: true
       - uses: dtolnay/rust-toolchain@stable
         with:

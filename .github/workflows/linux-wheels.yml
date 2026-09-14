@@ -28,10 +28,10 @@ jobs:
           maturin-version: '1.15.0'
           target: ${{ matrix.target }}
           manylinux: '2014'
-          args: --release --locked --out dist --interpreter python3.10
+          args: --release --locked --out dist --interpreter python3.12
       - name: Install and smoke without a compiler on every supported Python
         run: |
-          for python in 3.10 3.11 3.12 3.13 3.14; do
+          for python in 3.12 3.13 3.14; do
             docker run --rm \
               -v "$PWD/dist:/dist:ro" \
               -v "$PWD/scripts/smoke.py:/smoke.py:ro" \

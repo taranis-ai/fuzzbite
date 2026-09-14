@@ -16,9 +16,7 @@ def run(*args, cwd=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dist", type=Path, default=Path("dist"))
-    parser.add_argument(
-        "--python", nargs="+", default=["3.10", "3.11", "3.12", "3.13", "3.14"]
-    )
+    parser.add_argument("--python", nargs="+", default=["3.12", "3.13", "3.14"])
     args = parser.parse_args()
     distributions = args.dist.resolve()
     sdists = list(distributions.glob("*.tar.gz"))
