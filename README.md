@@ -9,14 +9,21 @@ dependencies.
 
 ## Installation
 
-Install from GitHub with [uv](https://docs.astral.sh/uv/):
+Install from PyPI with [uv](https://docs.astral.sh/uv/):
 
 ```sh
-uv add git+https://github.com/taranis-ai/fuzzbite.git
+uv add fuzzbite
 ```
 
-Source builds require Rust and a C linker. Supported platforms are Linux x86_64,
-Linux aarch64, and macOS arm64, with standard CPython 3.10–3.14.
+The release workflow builds precompiled wheels for Linux x86_64 and aarch64
+(glibc 2.17+, including Debian/Ubuntu containers), and macOS arm64, with standard
+CPython 3.10–3.14. Wheel installs require no Rust, Cargo, or C compiler.
+Alpine/musl, other platforms, and installs directly from Git require a source
+build with Rust and a C linker.
+
+Linux wheels are available starting with **0.1.1**; 0.1.0 only has a macOS wheel.
+To prevent silent source builds in a deployment, use
+`uv pip install --only-binary=:all: fuzzbite`.
 
 ## Quick start
 
@@ -119,16 +126,18 @@ uv run --locked python scripts/validate_artifacts.py
 
 On Linux, set `MATURIN_PEP517_ARGS='--compatibility linux'` for both commands.
 These local Linux wheels are platform-specific and cannot be uploaded to PyPI.
-CI checks all supported Python versions plus the latest stable Python, and builds
-on each supported platform. Workflows follow upstream action branches, latest uv,
-and stable Rust. Ubuntu x86_64 and macOS use `-latest` runners; Ubuntu ARM uses
+CI checks all supported Python versions plus the latest stable Python. Linux
+wheels are built in manylinux2014 containers and installed with source builds
+disabled into compiler-free Python 3.10–3.14 slim containers on both architectures.
+The same Linux workflow runs before publishing. Workflows follow upstream action
+branches, latest uv, and stable Rust. Ubuntu x86_64 and macOS use `-latest` runners; Ubuntu ARM uses
 `ubuntu-26.04-arm` because GitHub does not provide a `ubuntu-latest-arm` label.
 
 ## Publishing
 
 The [release workflow](.github/workflows/release.yml) publishes a source archive
-and a macOS arm64 wheel when a GitHub release is published. Linux users build
-from source until portable Linux wheels are available.
+and macOS arm64 and manylinux2014 x86_64/aarch64 wheels when a GitHub release is
+published. Publishing waits for every build and installation check to pass.
 
 Configure PyPI Trusted Publishing with these values:
 
@@ -143,7 +152,18 @@ Configure PyPI Trusted Publishing with these values:
 Create the `pypi` environment in the repository's GitHub settings and configure
 required reviewers to approve uploads. No PyPI API token is needed. The workflow
 must be committed before creating a release. Keep versions in `pyproject.toml`
-and `Cargo.toml` aligned, and use a matching tag such as `v0.1.0`.
+and `Cargo.toml` aligned, and use a matching tag such as `v0.1.1`.
+
+Release checklist:
+
+1. Update the version in `pyproject.toml`, `Cargo.toml`, and `scripts/smoke.py`,
+   and regenerate `uv.lock` and `Cargo.lock`.
+2. Run CI, publish the matching GitHub release, and approve the PyPI upload.
+3. Verify binary-only installation from PyPI on both Linux architectures.
+4. Update consumers' version pins and refresh their lockfiles so they include
+   the new wheels. Advance any `exclude-newer-package` cutoff past the upload
+   time; an older cutoff can hide the wheels. Then remove compiler installation
+   workarounds and verify their container builds.
 
 ## License
 

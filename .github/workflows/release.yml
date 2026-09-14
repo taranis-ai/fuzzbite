@@ -11,6 +11,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  linux-wheels:
+    uses: ./.github/workflows/linux-wheels.yml
+
   build:
     runs-on: macos-latest
     timeout-minutes: 30
@@ -61,7 +64,7 @@ jobs:
           if-no-files-found: error
 
   publish:
-    needs: build
+    needs: [build, linux-wheels]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
@@ -72,7 +75,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@main
         with:
-          name: pypi-distributions
+          pattern: pypi-*
+          merge-multiple: true
           path: dist
       - name: Publish distributions
         uses: pypa/gh-action-pypi-publish@release/v1

@@ -52,11 +52,14 @@ jobs:
       - run: uv run --locked ruff format --check .
       - run: uv run --locked python -m pytest -q
 
+  linux-wheels:
+    uses: ./.github/workflows/linux-wheels.yml
+
   distributions:
     strategy:
       fail-fast: false
       matrix:
-        runner: [ubuntu-latest, ubuntu-26.04-arm, macos-latest]
+        runner: [macos-latest]
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@main
@@ -74,9 +77,6 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
           key: cargo-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('Cargo.lock') }}
-      - name: Use honest native Linux tags
-        if: runner.os == 'Linux'
-        run: echo 'MATURIN_PEP517_ARGS=--compatibility linux' >> "$GITHUB_ENV"
       - run: uv sync --locked
       - run: uv run --locked python -m pytest -q
       - name: Build sdist and wheel through PEP 517
